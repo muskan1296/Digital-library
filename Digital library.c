@@ -52,6 +52,8 @@ int main()
 
 		// Add book
 		case 1:
+		;
+		    FILE *fp;
 
 			printf("Enter book name = ");
 			scanf("%s", lib[i].book_name);
@@ -65,6 +67,10 @@ int main()
 			printf("Enter price = ");
 			scanf("%f", &lib[i].price);
 			count++;
+			
+			fp = fopen("Library.txt", "a");
+			fprintf(fp, "%s %s", lib[i].book_name, lib[i].author);
+			fclose(fp);
 
 			break;
 
